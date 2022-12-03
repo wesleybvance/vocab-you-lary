@@ -1,7 +1,7 @@
 import renderToDOM from '../../utils/renderToDom';
 
 const buildDOM = () => {
-  const domString = `<div id="navigation"></div>
+  const domString = `<div id="navBar"></div>
   <div id="main-container">
     <div id="add-button"></div>
     <div id="form-container"></div>
