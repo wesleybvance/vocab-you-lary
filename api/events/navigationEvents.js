@@ -1,4 +1,4 @@
-import getWords from '../wordsData';
+import { getWords } from '../wordsData';
 import showWords from '../pages/words';
 
 const navigationEvents = () => {

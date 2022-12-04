@@ -22,7 +22,7 @@ const getWords = () => new Promise((resolve, reject) => {
 });
 
 // CREATE WORD
-const createWord = (payload) => new Promise ((resolve, reject) => {
+const createWord = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/words.json`, {
     method: 'POST',
     headers: {
@@ -37,4 +37,4 @@ const createWord = (payload) => new Promise ((resolve, reject) => {
 
 // DELETE WORD
 
-export { getWords, createWord }
+export { getWords, createWord };
