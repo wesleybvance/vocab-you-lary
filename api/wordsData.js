@@ -53,7 +53,7 @@ const updateWord = (payload) => new Promise((resolve, reject) => {
 const deleteWord = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/words/${firebaseKey}.json`,
     {
-      method: 'DETLETE',
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },

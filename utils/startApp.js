@@ -1,3 +1,4 @@
+import domEvents from '../api/events/domEvents';
 import formEvents from '../api/events/formEvents';
 import navigationEvents from '../api/events/navigationEvents';
 import logoutButton from '../components/buttons/logoutButton';
@@ -10,6 +11,7 @@ const startApp = (user) => {
   logoutButton();
   navigationEvents(user);
   formEvents(user);
+  domEvents(user);
 };
 
 export default startApp;
