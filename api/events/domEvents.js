@@ -15,10 +15,9 @@ const domEvents = (user) => {
         });
       }
     }
-    // CLICK TO UPDATE WORD
+    // CLICK TO VIEW UPDATE WORD FORM
     if (e.target.id.includes('edit-word')) {
       const [, firebaseKey] = e.target.id.split('--');
-      console.warn(firebaseKey);
       getOneWord(firebaseKey).then((word) => addWordForm(user.uid, word));
     }
   });

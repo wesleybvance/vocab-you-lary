@@ -5,7 +5,6 @@ import { createWord, getWords, updateWord } from '../wordsData';
 const formEvents = (user) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
-    console.warn(document.querySelector('#language').value);
     if (e.target.id.includes('submit-word')) {
       const payload = {
         name: document.querySelector('#wordName').value,
@@ -20,6 +19,19 @@ const formEvents = (user) => {
         updateWord(patchPayload).then(() => {
           getWords(user.uid).then(showWords);
         });
+      });
+    }
+    // CLICK TO SUBMIT EDITED WORD
+    if (e.target.id.includes('update-word')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#wordName').value,
+        definition: document.querySelector('#wordDefinition').value,
+        language: document.querySelector('#language').value,
+        firebaseKey,
+      };
+      updateWord(payload).then(() => {
+        getWords(user.uid).then(showWords);
       });
     }
   });
