@@ -21,4 +21,18 @@ const getLanguages = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getLanguages;
+// GET WORDS BY LANGUAGE
+const getWordsByLanguage = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="language_id"&equalTo="${firebaseKey}"`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+export { getWordsByLanguage, getLanguages };

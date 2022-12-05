@@ -10,6 +10,7 @@ const formEvents = (user) => {
         name: document.querySelector('#wordName').value,
         definition: document.querySelector('#wordDefinition').value,
         language: document.querySelector('#language').value,
+        language_id: document.querySelector('#').value,
         time: getTime(),
         uid: user.uid,
       };

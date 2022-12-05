@@ -1,5 +1,5 @@
 import renderToDOM from '../../utils/renderToDom';
-import getLanguages from '../../api/languageData';
+import { getLanguages } from '../../api/languageData';
 
 const selectLanguage = (uid, languageId) => {
   let domString = `<label for="language">Select a Language</label>
@@ -9,7 +9,7 @@ const selectLanguage = (uid, languageId) => {
     languageArray.forEach((lang) => {
       domString += `
       <option value="${lang.language}" 
-            ${languageId === lang.language ? 'selected' : ''}>
+            ${languageId === lang.language_id ? 'selected' : ''}>
               ${lang.language}
           </option>`;
     });
@@ -23,7 +23,7 @@ const selectLanguageFilter = (uid) => {
   getLanguages(uid).then((arr) => {
     arr.forEach((lang) => {
       domString += `
-    <a class="dropdown-item" href="#">${lang.language}</a>`;
+    <a class="dropdown-item" href="#" id="filter-words--${lang.firebaseKey}">${lang.language}</a>`;
     });
     domString += '</div>';
     renderToDOM('#select-language-nav', domString);

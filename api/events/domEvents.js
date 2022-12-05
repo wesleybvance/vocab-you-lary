@@ -1,4 +1,5 @@
 import addWordForm from '../../components/forms/addWordForm';
+import { getWordsByLanguage } from '../languageData';
 import showWords from '../pages/words';
 import { deleteWord, getOneWord, getWords } from '../wordsData';
 // import renderToDOM from '../../utils/renderToDom';
@@ -19,6 +20,12 @@ const domEvents = (user) => {
     if (e.target.id.includes('edit-word')) {
       const [, firebaseKey] = e.target.id.split('--');
       getOneWord(firebaseKey).then((word) => addWordForm(user.uid, word));
+    }
+
+    // CLICK TO VIEW BY LANGUAGE
+    if (e.target.id.includes('filter-words')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getWordsByLanguage(firebaseKey).then(showWords);
     }
   });
 };
