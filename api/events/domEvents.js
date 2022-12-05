@@ -1,5 +1,6 @@
+import addWordForm from '../../components/forms/addWordForm';
 import showWords from '../pages/words';
-import { deleteWord, getWords } from '../wordsData';
+import { deleteWord, getOneWord, getWords } from '../wordsData';
 // import renderToDOM from '../../utils/renderToDom';
 
 const domEvents = (user) => {
@@ -13,6 +14,11 @@ const domEvents = (user) => {
           getWords(user.uid).then(showWords);
         });
       }
+    }
+    // CLICK TO VIEW UPDATE WORD FORM
+    if (e.target.id.includes('edit-word')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getOneWord(firebaseKey).then((word) => addWordForm(user.uid, word));
     }
   });
 };
