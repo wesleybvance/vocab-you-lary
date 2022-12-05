@@ -7,7 +7,7 @@ import navBar from '../components/shared/navBar';
 
 const startApp = (user) => {
   buildDOM(user);
-  navBar();
+  navBar(user);
   logoutButton();
   navigationEvents(user);
   formEvents(user);

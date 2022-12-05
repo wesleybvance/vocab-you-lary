@@ -18,4 +18,16 @@ const selectLanguage = (uid, languageId) => {
   });
 };
 
-export default selectLanguage;
+const selectLanguageFilter = (uid) => {
+  let domString = '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+  getLanguages(uid).then((arr) => {
+    arr.forEach((lang) => {
+      domString += `
+    <a class="dropdown-item" href="#">${lang.language}</a>`;
+    });
+    domString += '</div>';
+    renderToDOM('#select-language-nav', domString);
+  });
+};
+
+export { selectLanguage, selectLanguageFilter };
