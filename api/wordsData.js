@@ -50,5 +50,22 @@ const updateWord = (payload) => new Promise((resolve, reject) => {
 });
 
 // DELETE WORD
+const deleteWord = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words/${firebaseKey}.json`,
+    {
+      method: 'DETLETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
-export { getWords, createWord, updateWord };
+export {
+  getWords,
+  createWord,
+  updateWord,
+  deleteWord
+};

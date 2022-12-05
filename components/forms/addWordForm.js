@@ -14,8 +14,9 @@ const addWordForm = (uid, obj = {}) => {
   </div>
   <div class="form-group">
     <label for="wordDefinition">Definition</label>
-    <textarea class="form-control" id="wordDefinition" rows="3"></textarea>
+    <textarea class="form-control" id="wordDefinition" rows="3" required></textarea>
   </div>
+  <button type="submit" id="submitWord" class="btn btn-primary">Submit</button>
 </form>`;
   renderToDOM('#form-container', domString);
   selectLanguage(uid, `${obj.language || ''}`);

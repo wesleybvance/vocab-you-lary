@@ -11,6 +11,7 @@ const showWords = (array) => {
       <h6 class="card-subtitle mb-2 text-muted">${word.language}</h6>
       <p class="card-text">${word.definition}</p>
       <a href="#" id="delete-word--${word.firebaseKey}" class="card-link">Delete Entry</a>
+      <p class="card-text">Created at ${word.time}</p>
     </div>
   </div>`;
   });
