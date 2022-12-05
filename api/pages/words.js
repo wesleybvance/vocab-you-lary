@@ -5,7 +5,7 @@ const showWords = (array) => {
   clearDom();
   let domString = '';
   array.forEach((word) => {
-    domString += `<div class="card" style="width: 18rem;">
+    domString += `<div class="card word-card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${word.name}</h5>
       <h6 class="card-subtitle mb-2 text-muted">${word.language}</h6>

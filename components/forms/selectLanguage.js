@@ -9,7 +9,7 @@ const selectLanguage = (uid, languageId) => {
     languageArray.forEach((lang) => {
       domString += `
       <option value="${lang.language}" 
-            ${languageId === lang.language_id ? 'selected' : ''}>
+            ${languageId === lang.firebaseKey ? 'selected' : ''}>
               ${lang.language}
           </option>`;
     });

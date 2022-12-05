@@ -5,7 +5,7 @@ import { selectLanguage } from './selectLanguage';
 const addWordForm = (uid, obj = {}) => {
   clearDom();
   const domString = `
-  <form id="${obj.firebaseKey ? `update-word--${obj.firebaseKey}` : 'submit-word'}">
+  <form id="${obj.firebaseKey ? `update-word--${obj.firebaseKey}` : 'submit-word'}" class="create-update-form">
   <div class="form-group">
     <label for="wordName">New Vocabulary Word</label>
     <input type="text" id="wordName" class="form-control" placeholder="Enter New Word" value="${obj.name || ''}" required>
