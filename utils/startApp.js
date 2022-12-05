@@ -1,3 +1,4 @@
+import formEvents from '../api/events/formEvents';
 import navigationEvents from '../api/events/navigationEvents';
 import logoutButton from '../components/buttons/logoutButton';
 import buildDOM from '../components/shared/buildDOM';
@@ -7,7 +8,8 @@ const startApp = (user) => {
   buildDOM(user);
   navBar();
   logoutButton();
-  navigationEvents();
+  navigationEvents(user);
+  formEvents(user);
 };
 
 export default startApp;

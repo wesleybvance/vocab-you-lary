@@ -3,8 +3,8 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // GET ALL WORDS
-const getWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/words.json`, {
+const getWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -35,6 +35,37 @@ const createWord = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// DELETE WORD
+// UPDATE WORD
+const updateWord = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
-export { getWords, createWord };
+// DELETE WORD
+const deleteWord = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words/${firebaseKey}.json`,
+    {
+      method: 'DETLETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export {
+  getWords,
+  createWord,
+  updateWord,
+  deleteWord
+};
