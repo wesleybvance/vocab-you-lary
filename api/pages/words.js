@@ -1,6 +1,8 @@
+import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 
 const showWords = (array) => {
+  clearDom();
   let domString = '';
   array.forEach((word) => {
     domString += `<div class="card" style="width: 18rem;">

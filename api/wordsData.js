@@ -3,8 +3,8 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // GET ALL WORDS
-const getWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/words.json`, {
+const getWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -51,4 +51,4 @@ const updateWord = (payload) => new Promise((resolve, reject) => {
 
 // DELETE WORD
 
-export { getWords, createWord };
+export { getWords, createWord, updateWord };

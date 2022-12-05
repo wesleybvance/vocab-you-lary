@@ -13,9 +13,12 @@ const navBar = () => {
       <li class="nav-item active">
         <a class="nav-link" id="allVocab" href="#">All Vocabulary<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="addWordLink">
         <a class="nav-link" href="#">Create Entry</a>
       </li>
+      <li class="nav-item active">
+      <a class="nav-link" id="allLang" href="#">All Languages<span class="sr-only">(current)</span></a>
+    </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Language

@@ -7,7 +7,7 @@ const startApp = (user) => {
   buildDOM(user);
   navBar();
   logoutButton();
-  navigationEvents();
+  navigationEvents(user);
 };
 
 export default startApp;
