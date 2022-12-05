@@ -1,6 +1,6 @@
 import renderToDOM from '../../utils/renderToDom';
 import clearDom from '../../utils/clearDom';
-import selectLanguage from './selectLanuage';
+import selectLanguage from './selectLanguage';
 
 const addWordForm = (uid, obj = {}) => {
   clearDom();
@@ -14,8 +14,8 @@ const addWordForm = (uid, obj = {}) => {
   </div>
   <div class="form-group">
     <label for="wordDefinition">Definition</label>
-    <textarea class="form-control" id="wordDefinition" rows="3" required></textarea>
-  </div>
+    <textarea class="form-control" id="wordDefinition" rows="3">${obj.definition || ''}</textarea>
+    </div>
   <button type="submit" id="submitWord" class="btn btn-primary">Submit</button>
 </form>`;
   renderToDOM('#form-container', domString);

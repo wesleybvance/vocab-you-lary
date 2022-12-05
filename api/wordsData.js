@@ -35,6 +35,20 @@ const createWord = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// GET SINGLE WORD
+const getOneWord = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words/${firebaseKey}.json`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 // UPDATE WORD
 const updateWord = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/words/${payload.firebaseKey}.json`, {
@@ -67,5 +81,6 @@ export {
   getWords,
   createWord,
   updateWord,
-  deleteWord
+  deleteWord,
+  getOneWord
 };
