@@ -22,7 +22,7 @@ const navBar = (user) => {
     </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Words by Language
+          View by Language
         </a>
         <div id="select-language-nav">
         </div>

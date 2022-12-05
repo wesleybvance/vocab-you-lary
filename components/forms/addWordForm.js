@@ -1,6 +1,6 @@
 import renderToDOM from '../../utils/renderToDom';
 import clearDom from '../../utils/clearDom';
-import selectLanguage from './selectLanguage';
+import { selectLanguage } from './selectLanguage';
 
 const addWordForm = (uid, obj = {}) => {
   clearDom();
@@ -19,7 +19,7 @@ const addWordForm = (uid, obj = {}) => {
   <button type="submit" id="submitWord" class="btn btn-primary">Submit</button>
 </form>`;
   renderToDOM('#form-container', domString);
-  selectLanguage(uid, `${obj.language || ''}`);
+  selectLanguage(uid, `${obj.language_id || ''}`);
 };
 
 export default addWordForm;

@@ -1,7 +1,7 @@
 import { getWords } from '../wordsData';
 import showWords from '../pages/words';
 import addWordForm from '../../components/forms/addWordForm';
-import getLanguages from '../languageData';
+import { getLanguages } from '../languageData';
 import showLanguages from '../pages/languages';
 
 const navigationEvents = (user) => {
