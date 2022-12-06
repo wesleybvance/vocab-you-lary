@@ -9,6 +9,10 @@ const navigationEvents = (user) => {
     (getWords(user.uid)).then(showWords);
   });
 
+  document.querySelector('#logoVocab').addEventListener('click', () => {
+    (getWords(user.uid)).then(showWords);
+  });
+
   document.querySelector('#addWordLink').addEventListener('click', () => {
     addWordForm(user.uid);
   });
