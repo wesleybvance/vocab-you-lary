@@ -5,7 +5,7 @@ import { selectLanguage } from './selectLanguage';
 const addWordForm = (uid, obj = {}) => {
   clearDom();
   const domString = `
-  <form id="${obj.firebaseKey ? `update-word--${obj.firebaseKey}` : 'submit-word'}">
+  <form id="${obj.firebaseKey ? `update-word--${obj.firebaseKey}` : 'submit-word'}" class="create-update-form">
   <div class="form-group">
     <label for="wordName">New Vocabulary Word</label>
     <input type="text" id="wordName" class="form-control" placeholder="Enter New Word" value="${obj.name || ''}" required>
@@ -16,6 +16,7 @@ const addWordForm = (uid, obj = {}) => {
     <label for="wordDefinition">Definition</label>
     <textarea class="form-control" id="wordDefinition" rows="3">${obj.definition || ''}</textarea>
     </div>
+    <div id="selected-lang"></div>
   <button type="submit" id="submitWord" class="btn btn-primary">Submit</button>
 </form>`;
   renderToDOM('#form-container', domString);
