@@ -21,6 +21,20 @@ const getLanguages = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// GET SINGLE LANGUAGE
+const getOneLanguage = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/language/${firebaseKey}.json`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 // GET WORDS BY LANGUAGE
 const getWordsByLanguage = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/words.json?orderBy="language_id"&equalTo="${firebaseKey}"`,
@@ -35,4 +49,4 @@ const getWordsByLanguage = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getWordsByLanguage, getLanguages };
+export { getWordsByLanguage, getLanguages, getOneLanguage };

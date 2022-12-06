@@ -8,7 +8,7 @@ const showWords = (array) => {
     domString += `<div class="card word-card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${word.name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${word.language}</h6>
+      <h6 class="card-subtitle mb-2 text-muted" id="languageName--${word.language_id}">${word.language}</h6>
       <p class="card-text">${word.definition}</p>
       <a href="#" id="delete-word--${word.firebaseKey}" class="card-link">Delete Entry</a>
       <a href="#" id="edit-word--${word.firebaseKey}" class="card-link">Edit Entry</a>

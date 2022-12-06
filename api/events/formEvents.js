@@ -1,6 +1,7 @@
 import getTime from '../../utils/getTime';
 import showWords from '../pages/words';
 import { createWord, getWords, updateWord } from '../wordsData';
+import getLanguageName from '../../utils/getLanguageName';
 
 const formEvents = (user) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -9,11 +10,13 @@ const formEvents = (user) => {
       const payload = {
         name: document.querySelector('#wordName').value,
         definition: document.querySelector('#wordDefinition').value,
-        language: document.querySelector('#language').value,
-        language_id: document.querySelector('#').value,
+        language_id: document.querySelector('#language').value,
+        language: getLanguageName(document.querySelector('#language').value),
         time: getTime(),
         uid: user.uid,
       };
+      console.warn(payload);
+      console.warn(document.querySelector('#language').value);
       createWord(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
 
@@ -28,7 +31,7 @@ const formEvents = (user) => {
       const payload = {
         name: document.querySelector('#wordName').value,
         definition: document.querySelector('#wordDefinition').value,
-        language: document.querySelector('#language').value,
+        language_id: document.querySelector('#language').value,
         firebaseKey,
       };
       updateWord(payload).then(() => {
